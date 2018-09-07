@@ -1,0 +1,39 @@
+{
+  "name": "dislikeez",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension changes youtube dislike to dislikeez",
+  "icons": {
+    "16": "images/ilyusha-16.png",
+    "32": "images/ilyusha-32.png",
+    "48": "images/ilyusha-48.png",
+    "128": "images/ilyusha-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "scripts/chromereload.js",
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/watch*"
+      ],
+      "js": [
+        "scripts/contentscript.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    "images/*.png"
+  ]
+}
